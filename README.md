@@ -91,7 +91,8 @@ you show me my stupids. That's the honest words not just a social things.
 tested in Bioogr Linux (a simple and small Linux distro which are developed from Ubuntu
 and is run offline from 64GB USB stick on 4GB RAM laptop). It is able to run with more
 posts but I have not enough disk space to do that. This version is called version
-0.1.1 .
+0.1.1 . In this version, I code based on improvisation, so the codebase does not follow
+Wordpress Coding Standards, this will be fixed in next version.
 
 
 ```
