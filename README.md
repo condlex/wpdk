@@ -40,8 +40,9 @@ Google Cloud to benchmark in order to find out which hosts gain
 maximum profit in each use case.
 + Project will be coded following Wordpress Coding Standards and will
 be optimized for:
-  o being easy to integrate to Wordpress.com platform
-  o easy and safely to remove from Wordpress.com, 
+  o being easy to integrate to Wordpress.com platform (Wordpress.com will
+    be simulated based on my knowing about the platform and for demonstrating)
+  o easy and safely to remove from Wordpress.com platform 
   o reduce maximum operation cost and provide new service for wordpress.com
     with maximum profit (the project may be not accomplish this goal but
     it shows that I know how to do, be interested to do, be ready to learn
