@@ -27,7 +27,7 @@ because that hosting only allow 100,000 requests to database each hour.
 The more is storing 1 billion normal posts requires at least 2TB disks
 (that is based on my calculation).
 
-When I see job posting from Automattic for Experience Software Engineer,
+When I see job posting from Automattic for Experienced Software Engineer,
 I think this idea is the best personal project to build demo for
 demonstrating my skills and experience which show that I have ability
 to finish projects assigned by Automattic. Some noticable points are:
