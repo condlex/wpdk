@@ -81,4 +81,17 @@ and "Knowing my stupids is always not bad because I can learn to work smarter an
 much efficiently in order to have higher salary and compensation.". I appreciate if
 you show me my stupids. That's the honest words not just a social things.
 
+
+========|_|==============
+   Progressing Status
+=========================
+
+[ March 29, 2026 ]
++ A simple theme with simple UI which can be runned with 5,000,000 normal posts. It is
+tested in Bioogr Linux (a simple and small Linux distro which are developed from Ubuntu
+and is run offline from 64GB USB stick on 4GB RAM laptop). It is able to run with more
+posts but I have not enough disk space to do that. This version is called version
+0.1.1 .
+
+
 ```
