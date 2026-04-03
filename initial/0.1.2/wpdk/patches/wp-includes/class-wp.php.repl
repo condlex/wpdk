@@ -1,0 +1,6 @@
+
+		require_once __DIR__ . '/../wp-content/themes/wpdk/wpdk/wpdk.php';
+		// Never 404 for the admin, robots, or favicon.
+		if ( wpdk_disk_available() ) {
+			$set_404 = false;
+		} else if ( is_admin() || is_robots() || is_favicon() ) {
