@@ -94,5 +94,8 @@ posts but I have not enough disk space to do that. This version is called versio
 0.1.1 . In this version, I code based on improvisation, so the codebase does not follow
 Wordpress Coding Standards, this will be fixed in next version.
 
+[ April 3, 2026 ]
++ This version is called version 0.1.2. In this version, version 0.1.1 is modified to
+apply Wordpress Coding Standards.
 
 ```
