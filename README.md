@@ -98,4 +98,16 @@ Wordpress Coding Standards, this will be fixed in next version.
 + This version is called version 0.1.2. In this version, version 0.1.1 is modified to
 apply Wordpress Coding Standards.
 
+[ April 6, 2026 ]
++ This version is called version 0.1.3. In this version, unit test tool is replaced by
+Testor ( https://github.com/condlex/testor ); search feature is added to help user
+searching & browsing random posts; 50,000,000 posts are generated; 1,000 post indexes
+are generated (will be continued to generate in next days until hard disk (1TB) is full).
+  o Plan on next days:
+    __ Add token protected for tools of creating posts, indexing posts, unit testing
+    __ Add custom post type in order to allow Wordpress creating & modifying posts via
+       Admin interface.
+    __ Upload to host and generate 1 billion posts. If time remains, 1 billion posts will
+       be indexed and available to search.
+
 ```
