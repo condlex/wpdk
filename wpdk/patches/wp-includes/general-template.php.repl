@@ -1,0 +1,7 @@
+function wp_get_document_title() {
+	if ( wpdk_disk_available() ) {
+		$current_post = wpdk_current_post();
+		if ( $current_post !== false ) {
+			return $current_post['title'];
+		}
+	}
