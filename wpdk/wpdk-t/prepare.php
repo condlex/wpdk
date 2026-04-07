@@ -15,11 +15,18 @@ global $wpdk_config;
 require_once __DIR__ . '/wpdk/config.php';
 require_once __DIR__ . '/wpdk/wpdk.php';
 
-$token = $_GET['token'];
+$token = '';
+if ( isset( $_GET['token'] ) ) {
+  $token = $_GET['token'];
+}
 if ( $token !== $wpdk_config['token'] ) {
   header( 'Content-Type: text/plain' );
   echo "Token is not valid!";
   exit();
+}
+
+if ( function_exists('opcache_reset') ) {
+  opcache_reset();
 }
 
 $debug_count = 1000;
@@ -36,7 +43,10 @@ if ( $batch_no <= 0 ) {
 $from_count = ( $batch_no - 1 ) * $batch_size + 1;
 $to_count = ( $batch_no ) * $batch_size;
 
-$mark_count = intval( $_GET['mk'] );
+$mark_count = 0;
+if ( isset( $_GET['mk'] ) ) {
+  $mark_count = intval( $_GET['mk'] );
+}
 if ( $mark_count <= 0 ) {
   $mark_count = $from_count;
 }

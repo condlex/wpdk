@@ -12,7 +12,10 @@ set_time_limit( 60 * 60 * 24 );
 global $wpdk_config;
 require_once __DIR__ . '/wpdk/config.php';
 
-$token = $_GET['token'];
+$token = '';
+if ( isset( $_GET['token'] ) ) {
+  $token = $_GET['token'];
+}
 if ( PHP_SAPI === 'cli' ) {
   $token = $argv[1];
 }
@@ -28,9 +31,9 @@ $script_file = 'http://localhost/wpdk-t/prepare.php';
 $batch_size = 10000;
 $batch_size = 100 / 4;
 $max_count = 500000 * 100 * 4;
-$count = 489;
+$count = 883;
 do {
-  $url = $script_file . '?bs=' . $batch_size . '&bn=' . $count;
+  $url = $script_file . '?bs=' . $batch_size . '&bn=' . $count . '&token=' . urlencode( $token );
   $result = @file_get_contents($url);
   $mark_count = -1;
   do {
@@ -44,7 +47,7 @@ do {
       break;
     }
     if ( $mark_count >= 0 ) {
-      $url = $script_file . '?bs=' . $batch_size . '&bn=' . $count . '&mk=' . $mark_count;
+      $url = $script_file . '?bs=' . $batch_size . '&bn=' . $count . '&mk=' . $mark_count . '&token=' . urlencode( $token );
       $result = @file_get_contents($url);
       echo '[RI] ', $result, '\n';
     }

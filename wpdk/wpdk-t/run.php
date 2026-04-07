@@ -27,7 +27,7 @@ $script_file = 'http://localhost/wpdk-t/';
 $max_count = 5000;
 $count = 1006;
 do {
-  $url = $script_file . '?bs=10000&bm=' . $max_count . '&bn=' . $count . '&ph=5';
+  $url = $script_file . '?bs=10000&bm=' . $max_count . '&bn=' . $count . '&ph=5' . '&token=' . $token;
   $result = file_get_contents($url);
   echo '[R] ', $count, ' / ', $max_count, '\n', $result;
   $count++;
