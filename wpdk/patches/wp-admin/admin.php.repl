@@ -1,0 +1,5 @@
+/** Load WordPress Bootstrap */
+require_once dirname( __DIR__ ) . '/wp-load.php';
+
+require_once dirname( __DIR__ ) . '/wp-content/themes/wpdk/wpdk/wpdk.php';
+wpdk_setup_admin();
