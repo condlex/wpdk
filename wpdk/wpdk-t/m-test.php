@@ -12,6 +12,16 @@ global $wpdk_config, $testor_set, $root_uri, $test_count, $friendly, $g_result_d
 require_once __DIR__ . '/wpdk/config.php';
 require_once __DIR__ . '/wpdk/class-testor.php';
 
+$token = $_GET['token'];
+if ( PHP_SAPI === 'cli' ) {
+  $token = $argv[1];
+}
+if ( $token !== $wpdk_config['token'] ) {
+  header( 'Content-Type: text/plain' );
+  echo "Token is not valid!";
+  exit();
+}
+
 $g_used_threads = array();
 
 $g_result_dir = '/bioogr/data/wpdk/m-test';

@@ -15,6 +15,13 @@ global $wpdk_config;
 require_once __DIR__ . '/wpdk/config.php';
 require_once __DIR__ . '/wpdk/wpdk.php';
 
+$token = $_GET['token'];
+if ( $token !== $wpdk_config['token'] ) {
+  header( 'Content-Type: text/plain' );
+  echo "Token is not valid!";
+  exit();
+}
+
 $debug_count = 1000;
 $maximum_execution_time = 60 * 60 * 18;
 

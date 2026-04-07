@@ -16,6 +16,13 @@ global $wpdk_config;
 require_once __DIR__ . '/wpdk/wpdk.php';
 $script_file = $wpdk_config['build_uri'];
 
+$token = $_GET['token'];
+if ( $token !== $wpdk_config['token'] ) {
+  header( 'Content-Type: text/plain' );
+  echo "Token is not valid!";
+  exit();
+}
+
 $phase = intval( $_GET['ph'] );
 
 if ( $phase == 1 || $phase == 5 ) {

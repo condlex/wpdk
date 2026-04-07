@@ -12,16 +12,23 @@ set_time_limit( 60 * 60 * 24 );
 global $wpdk_config;
 require_once __DIR__ . '/wpdk/config.php';
 
+$token = $_GET['token'];
+if ( PHP_SAPI === 'cli' ) {
+  $token = $argv[1];
+}
+if ( $token !== $wpdk_config['token'] ) {
+  header( 'Content-Type: text/plain' );
+  echo "Token is not valid!";
+  exit();
+}
+
 $debug_count = 1;
 //$script_file = $wpdk_config['root_uri'] . '/wp-content/themes/wpdk/wpdk-t/prepare.php';
 $script_file = 'http://localhost/wpdk-t/prepare.php';
 $batch_size = 10000;
-$batch_size = 100;
-$max_count = 5000 * 100;
-$max_count = 5000 * 2;
-$max_count = 10000;
-$batch_size = 100;
-$count = 119;
+$batch_size = 100 / 4;
+$max_count = 500000 * 100 * 4;
+$count = 489;
 do {
   $url = $script_file . '?bs=' . $batch_size . '&bn=' . $count;
   $result = @file_get_contents($url);

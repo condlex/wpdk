@@ -12,6 +12,16 @@ global $wpdk_config, $testor, $root_uri, $test_start, $test_count, $friendly;
 require_once __DIR__ . '/wpdk/config.php';
 require_once __DIR__ . '/wpdk/class-testor.php';
 
+$token = $_GET['token'];
+if ( PHP_SAPI === 'cli' ) {
+  $token = $argv[1];
+}
+if ( $token !== $wpdk_config['token'] ) {
+  header( 'Content-Type: text/plain' );
+  echo "Token is not valid!";
+  exit();
+}
+
 $friendly = false;
 $test_count = 1000000;
 $test_start = 1;
