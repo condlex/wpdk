@@ -119,4 +119,13 @@ allow Wordpress creating & modifying posts via Admin interface.
     __ Upload to host and generate 1 billion posts. If time remains, 1 billion posts will
        be indexed and available to search.
 
+[ April 7, 2026 ]
++ This version is called version 0.1.5. In this version, minor bugs in tools of creating posts,
+indexing posts which is related to protected token are fixed. Screenshots are also added.
+  o Plan on next days:
+    __ Continue to generate indexes until hard disk (1TB) is full.
+    __ Upload to host and generate 1 billion posts. If time remains, 1 billion posts will
+       be indexed and available to search.
+
+
 ```
