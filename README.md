@@ -110,4 +110,13 @@ are generated (will be continued to generate in next days until hard disk (1TB) 
     __ Upload to host and generate 1 billion posts. If time remains, 1 billion posts will
        be indexed and available to search.
 
+[ April 7, 2026 ]
++ This version is called version 0.1.4. In this version, token protected for tools of creating
+posts, indexing posts, unit testing is added. Custom post type ('postisk') is added in order to
+allow Wordpress creating & modifying posts via Admin interface.
+  o Plan on next days:
+    __ Continue to generate indexes until hard disk (1TB) is full.
+    __ Upload to host and generate 1 billion posts. If time remains, 1 billion posts will
+       be indexed and available to search.
+
 ```
