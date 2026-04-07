@@ -15,3 +15,5 @@
 ![](https://github.com/condlex/wpdk/blob/main/wpdk/screenshots/shot-005.png?raw=true)
 
 ![](https://github.com/condlex/wpdk/blob/main/wpdk/screenshots/shot-007.png?raw=true)
+
+![](https://github.com/condlex/wpdk/blob/main/wpdk/screenshots/shot-008.png?raw=true)
