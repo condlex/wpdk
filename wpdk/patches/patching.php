@@ -7,11 +7,23 @@
  *
  * Viewing copyright information at https://github.com/condlex/wpdk/LICENSE .
  */
+global $wpdk_config;
+require_once __DIR__ . '/../wpdk/config.php';
 
-function wpdk_theme_patch_file( $patches_dir, $filename ) {
+$token = $_GET['token'];
+if ( PHP_SAPI === 'cli' ) {
+  $token = $argv[1];
+}
+if ( $token !== $wpdk_config['token'] ) {
+  header( 'Content-Type: text/plain' );
+  echo "Token is not valid!";
+  exit();
+}
+
+function wpdk_theme_patch_file( $patches_dir, $filename, $source_dir = '/../../../../wp-includes/' ) {
   $finding = file_get_contents( $patches_dir . '/' . $filename . '.key' );
   $replacement = file_get_contents( $patches_dir . '/' . $filename . '.repl' );
-  $source_file = __DIR__ . '/../../../../wp-includes/' . $filename;
+  $source_file = __DIR__ . $source_dir . $filename;
   $text = file_get_contents( $source_file );
   $position = strpos( $text, $replacement );
   if ( false !== $position ) return;
@@ -27,6 +39,11 @@ function wpdk_theme_patching() {
   $patches_dir = __DIR__ . '/wp-includes';
   wpdk_theme_patch_file( $patches_dir, 'class-wp.php' );
   wpdk_theme_patch_file( $patches_dir, 'general-template.php' );
+
+  $patches_dir = __DIR__ . '/wp-admin';
+  wpdk_theme_patch_file( $patches_dir, 'admin.php', '/../../../../wp-admin/' );
+  wpdk_theme_patch_file( $patches_dir, 'edit.php', '/../../../../wp-admin/' );
+  wpdk_theme_patch_file( $patches_dir, 'post-new.php', '/../../../../wp-admin/' );
 }
 
 wpdk_theme_patching();
