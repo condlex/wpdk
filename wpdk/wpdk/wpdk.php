@@ -511,16 +511,18 @@ function wpdk_search_index_post( $post_id ) {
   @mkdir( $indexes_dir, 0777, true );
   $title = $post['title'];
   $content = $post['content'];
-  wpdk_search_index_data( $indexes_dir, $title, $post_id );
-  wpdk_search_index_data( $indexes_dir, $content, $post_id );
+  $write_count = 0;
+  wpdk_search_index_data( $indexes_dir, $title, $post_id, $write_count );
+  wpdk_search_index_data( $indexes_dir, $content, $post_id, $write_count );
+  echo "[I] ", $write_count, "\n";
 }
 
-function wpdk_search_index_data( $indexes_dir, $data, $post_id ) {
+function wpdk_search_index_data( $indexes_dir, $data, $post_id, &$write_count ) {
   $maximum_number_count = 1024 * 4;
   $word_list = explode( ' ', $data );
   $used_marker = [];
-  foreach ( $word_list as $word ) {
-    $word = md5( strtolower( $word ) );
+  foreach ( $word_list as $word_r ) {
+    $word = md5( strtolower( $word_r ) );
     if ( isset( $used_marker[ $word ] ) ) continue;
     $used_marker[ $word ] = 1;
     $slug = [];
@@ -539,6 +541,7 @@ function wpdk_search_index_data( $indexes_dir, $data, $post_id ) {
     @mkdir( dirname( $filename ), 0777, true );
     $number_array = wpdk_search_match_file( $filename, $post_id );
     if ( $number_array === false ) {
+      echo "[F1] ", $post_id, ", ", $word_r, " -- ", $filename, "\n";
       continue;
     }
     $no = 0;
@@ -547,6 +550,7 @@ function wpdk_search_index_data( $indexes_dir, $data, $post_id ) {
       $filename = $indexes_dir . '/' . $slug . '.' . $no . '.wpdk';
       $number_array = wpdk_search_match_file( $filename, $post_id );
       if ( $number_array === false ) {
+        echo "[F2] ", $post_id, ", ", $word_r, " -- ", $filename, "\n";
         break;
       } else if ( count( $number_array ) == 0 ) {
         break;
@@ -554,6 +558,8 @@ function wpdk_search_index_data( $indexes_dir, $data, $post_id ) {
     }
     if ( $number_array === false ) continue;
     $number_array[] = $post_id;
+    echo "[W] ", $post_id, ", ", $word_r, " -- ", $filename, "\n";
+    $write_count++;
     wpdk_search_write_file( $filename, $number_array );
   }
 }
