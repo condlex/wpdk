@@ -11,6 +11,78 @@
 global $wpdk_config;
 require_once __DIR__ . '/config.php';
 
+function wpdk_admin_new_post() {
+  global $wpdk_config;
+  if ( $_GET['post_type'] !== 'postisk' ) return;
+  $uri = $wpdk_config['root_uri'] . '/wp-admin/edit.php?post_type=postisk&edit=y&new=y';
+  header('Location: ' . $uri);
+  exit();
+}
+
+function wpdk_admin_edit_posts() {
+  if ( $_GET['post_type'] !== 'postisk' ) return;
+  require_once ABSPATH . 'wp-admin/admin-header.php';
+  require_once __DIR__ . '/../patterns/wpdk-admin-search-template.php';
+  exit();
+}
+
+function wpdk_setup_admin() {
+	register_post_type(
+		'postisk',
+		array(
+			'labels'                => array(
+				'name_admin_bar' => _x( 'Postisk', 'add new from admin bar' ),
+				'name'               => _x( 'Postisks', 'post type general name' ),
+				'singular_name'      => _x( 'Postisk', 'post type singular name' ),
+				'add_new'            => __( 'Add Postisk' ),
+				'add_new_item'       => __( 'Add Postisk' ),
+				'new_item'           => __( 'New Postisk' ),
+				'edit_item'          => __( 'Edit Postisk' ),
+				'view_item'          => __( 'View Postisk' ),
+				'all_items'          => __( 'All Postisks' ),
+				'search_items'       => __( 'Search Postisks' ),
+				'not_found'          => __( 'No postisks found.' ),
+				'not_found_in_trash' => __( 'No postisks found in Trash.' ),
+			),
+			'public'                => true,
+			'publicly_queryable'    => false,
+			'capability_type'       => array( 'edit_posts' ),
+			'capabilities'          => array(
+				// Meta Capabilities.
+				'edit_post'              => 'edit_post',
+				'read_post'              => 'read_post',
+				'delete_post'            => 'delete_post',
+				// Primitive Capabilities.
+				'edit_posts'             => 'edit_theme_options',
+				'edit_others_posts'      => 'edit_theme_options',
+				'delete_posts'           => 'edit_theme_options',
+				'publish_posts'          => 'edit_theme_options',
+				'read_private_posts'     => 'edit_theme_options',
+				'read'                   => 'read',
+				'delete_private_posts'   => 'edit_theme_options',
+				'delete_published_posts' => 'edit_theme_options',
+				'delete_others_posts'    => 'edit_theme_options',
+				'edit_private_posts'     => 'edit_theme_options',
+				'edit_published_posts'   => 'edit_theme_options',
+			),
+
+			'map_meta_cap'          => true,
+			'menu_position'         => 21,
+			'menu_icon'             => 'dashicons-admin-page',
+			'hierarchical'          => true,
+			'rewrite'               => false,
+			'query_var'             => false,
+			'delete_with_user'      => true,
+			'supports'              => array(
+				'title',
+			),
+			'show_in_rest'          => true,
+			'rest_base'             => 'menu-items',
+			'rest_controller_class' => 'WP_REST_Posts_Controller',
+		)
+	);
+}
+
 function wpdk_current_post() {
   if ( ! wpdk_disk_available() ) return false;
   $id = wpdk_current_post_id();
@@ -467,7 +539,6 @@ function wpdk_search_index_data( $indexes_dir, $data, $post_id ) {
     @mkdir( dirname( $filename ), 0777, true );
     $number_array = wpdk_search_match_file( $filename, $post_id );
     if ( $number_array === false ) {
-      echo "[F1] ", $post_id, " --| ", $filename, "\n";
       continue;
     }
     $no = 0;
@@ -476,10 +547,8 @@ function wpdk_search_index_data( $indexes_dir, $data, $post_id ) {
       $filename = $indexes_dir . '/' . $slug . '.' . $no . '.wpdk';
       $number_array = wpdk_search_match_file( $filename, $post_id );
       if ( $number_array === false ) {
-        echo "[F2] ", $post_id, " --| ", $filename, "\n";
         break;
       } else if ( count( $number_array ) == 0 ) {
-        echo "[F3] ", $post_id, " --| ", $filename, "\n";
         break;
       }
     }

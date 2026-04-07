@@ -15,8 +15,8 @@ $wpdk_config = array(
   'root_uri'  => 'http://localhost/wpdk',
   'plvl'      => 5,
   'pcnt'      => 200,
-  'merge'     => true,
-  'data_dir'  => '/bioogr/data/wpdk'
+  'data_dir'  => '/bioogr/data/wpdk',
+  'token' => '69d41573546c669d415882e1a669d4159b0e81c69d415ae4abde'
 );
 
 if ( $wpdk_config['data_dir'][0] !== '/' ) {
