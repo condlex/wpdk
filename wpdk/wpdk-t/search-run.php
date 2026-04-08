@@ -31,7 +31,7 @@ $script_file = 'http://localhost/wpdk-t/prepare.php';
 $batch_size = 10000;
 $batch_size = 100 / 4;
 $max_count = 500000 * 100 * 4;
-$count = 883;
+$count = 772;
 do {
   $url = $script_file . '?bs=' . $batch_size . '&bn=' . $count . '&token=' . urlencode( $token );
   $result = @file_get_contents($url);

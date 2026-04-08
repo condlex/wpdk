@@ -515,7 +515,7 @@ EOT;
       echo '[C] ', $batch_no, ', ', $batch_size, ' --> ', $from_count, ', ', $to_count, ' --> ', $sample_size, ' --> ', wpdk_last_post_id(), ' [Time] ', 'Total: ', $time_a, ', Min Item: ', $time_min, ', Max Item: ', $time_max, '\n';
     } else { 
       header( 'Content-Type: text/html' );
-      $url = $script_file . '?bs=' . $batch_size . '&bn=' . ( $batch_no + 1 ) . '&bm=' . $maximum_batch_no . '&ph=5';
+      $url = $script_file . '?bs=' . $batch_size . '&bn=' . ( $batch_no + 1 ) . '&bm=' . $maximum_batch_no . '&ph=5&token=' . $token;
       echo "<html><script>function go() { location='" , $url , "'; }", '</script><body onload="go()">';
       echo '[C] ', $batch_no, ', ', $batch_size, ' --> ', $from_count, ', ', $to_count, ' --> ', $sample_size, ' --> ', wpdk_last_post_id(), ' [Time] ', 'Total: ', $time_a, ', Min Item: ', $time_min, ', Max Item: ', $time_max, '\n';
       echo '</body></html>';

@@ -32,6 +32,8 @@ if ( function_exists('opcache_reset') ) {
 $debug_count = 1000;
 $maximum_execution_time = 60 * 60 * 18;
 
+$max = intval( $_GET['bm'] );
+
 $batch_size = intval( $_GET['bs'] );
 if ( $batch_size <= 0 ) {
   $batch_size = 1000;
@@ -74,5 +76,9 @@ if ( $id <= $to_count ) {
   echo '\n[L] ', $id, ' [L]\n';
 } else {
   echo '[IDX] ', $id, ', ', $from_count, ' - ', $to_count, ' / ', $batch_no, ' / ', $batch_size, '\n';
+  if ( $batch_no + 1 <= $max ) {
+    $url = $wpdk_config['build_uri'] . 'prepare.php?bs=' . $batch_size . '&bn=' . ($batch_no + 1) . '&bm=' . $max . '&token=' . $token;
+    echo "<script>location='$url';</script>";  
+  }
 }
 ?>
