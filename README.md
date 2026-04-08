@@ -142,7 +142,8 @@ tools of creating posts, indexing posts is fixed. Indexing feature is refactored
       which is similar VNeIDs app, so I cancel new debit card) ).
     __ Benchmark WPDK on 1TB hard disk, optimize WPDK to gain maximum rate of storing & indexes (smallest as
       possible), add virtual file system feature to manage multiple disk for contributing to data folder contents.
-
+    __ Steps by steps purchasing larger USB sticks, generate and index 1 billion posts with multiple USB sticks on
+    laptop.
 
 
 
