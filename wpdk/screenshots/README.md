@@ -6,14 +6,6 @@
 ========|_|==============
     Wordpress On Disk
        -----
-      Version 0.1.5
+      Version 0.1.6
 =========================
 ```
-
-![](https://github.com/condlex/wpdk/blob/main/wpdk/screenshots/shot-004.png?raw=true)
-
-![](https://github.com/condlex/wpdk/blob/main/wpdk/screenshots/shot-005.png?raw=true)
-
-![](https://github.com/condlex/wpdk/blob/main/wpdk/screenshots/shot-007.png?raw=true)
-
-![](https://github.com/condlex/wpdk/blob/main/wpdk/screenshots/shot-008.png?raw=true)
