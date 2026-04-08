@@ -127,5 +127,23 @@ indexing posts which is related to protected token are fixed. Screenshots are al
     __ Upload to host and generate 1 billion posts. If time remains, 1 billion posts will
        be indexed and available to search.
 
+[ April 9, 2026 ]
++ This version is called version 0.1.6. In this version, highlighting feature is added to search
+in both admin and public. Listing all posts when query is empty is also added. Some minor bugs in
+tools of creating posts, indexing posts is fixed. Indexing feature is refactored to improve speed.
+  o Plan on next days:
+    __ Continue to generate indexes until hard disk (1TB) is full.
+      oo Indexing is still too slow (5,000 posts per 10 hours)
+    __ Upload to host and generate 1 billion posts. If time remains, 1 billion posts will
+       be indexed and available to search.
+      oo This task is cancelled because I can not gain Debit card to buy hosting (Information of debit
+      card is only available by using Mobile app, I don't want to use app (just because I don't want
+      to do some stupid actions as followed instructions when using app to verify actions (face recognition)
+      which is similar VNeIDs app, so I cancel new debit card) ).
+    __ Benchmark WPDK on 1TB hard disk, optimize WPDK to gain maximum rate of storing & indexes (smallest as
+      possible), add virtual file system feature to manage multiple disk for contributing to data folder contents.
+
+
+
 
 ```
