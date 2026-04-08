@@ -145,6 +145,12 @@ tools of creating posts, indexing posts is fixed. Indexing feature is refactored
     __ Steps by steps purchasing larger USB sticks, generate and index 1 billion posts with multiple USB sticks on
     laptop.
 
-
+[ April 9, 2026 ]
++ I have just received rejected email from Automattic. This repository will be not updated any more. "Wordpress On Disk" project will be done by closed source. "Wordpress On Disk" will be renamed to "Postisk" which is:
+  o A CMS written in Hack language & run on HHVM.
+  o Provide cloud service for CMS needs.
+  o Provide post managing with dynamic properties (something like Salesforce)
+  o Provide API access for developers to build web app based on "Postisk".
+  o Source code of "Postisk" will be stored offline.
 
 ```
